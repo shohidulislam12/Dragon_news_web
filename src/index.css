@@ -6,3 +6,7 @@ body{
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a.active{
+  background-color: #c58e8e;
+}
