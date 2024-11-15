@@ -1,6 +1,8 @@
 import { FaUser, FaRegCommentDots, FaShareAlt, FaEye } from "react-icons/fa"
+import { Link } from "react-router-dom";
 const NewsCard = ({newssin}) => {
-    const {title,author, details,total_view,image_url,thumbnail_url,rating}=newssin
+    const {title,author,category_id,_id, details,total_view,image_url,thumbnail_url,rating}=newssin
+   
     return (
         <div className="card  bg-base-100 shadow-lg rounded-lg ">
             <div className="p-4  flex items-center gap-2">
@@ -35,9 +37,9 @@ const NewsCard = ({newssin}) => {
                 details}
                 </p>
                 
-                <p className="text-sm text-red-500 mt-2 cursor-pointer">
+                <Link to={`/news/${_id}`} className="text-sm text-red-500 mt-2 cursor-pointer">
                     Read More
-                </p>
+                </Link>
 
                 <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center text-yellow-500">

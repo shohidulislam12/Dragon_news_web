@@ -1,15 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
-import user from "../assets/user.png"
+import usericon from "../assets/user.png"
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 const Navbar = () => {
-  const {name}=useContext(AuthContext)
+  const {name,user,logOut,setUSer}=useContext(AuthContext)
+  const handleLogout=()=>{
+    logOut()
+    setUSer(null)
+  }
+  console.log("user from navbar",user)
     return (
         <div className=" flex justify-between">
            <div>
   {
-    name&&  <p>{name}</p>
-  }
+    user&&  <p>{user.user?.email}</p>
+  } 
            </div>
            <div className="flex gap-5">
                     <NavLink to="/">Home</NavLink>
@@ -17,10 +22,18 @@ const Navbar = () => {
                     <NavLink to="career">Career</NavLink>
            </div>
            <div className="flex gap-2">
-           <div>
-           <img src={user} alt="" />
-           </div>
-             <Link to='/auth/login' className="bg-black rounded-sm px-4 text-white p-2 ">Login</Link>
+         {
+          user&&user.email?<div>
+            <img className="w-10 rounded-full" src={user?.photoURL} alt="" />
+            <p>{user?.displayName}</p>
+          </div> :  <div>
+          <img src={usericon} alt="" />
+          </div>
+         }
+           {
+               user? <button onClick={handleLogout} className="bg-black rounded-sm px-4 text-white p-2 ">Log Out</button> : <Link to='/auth/login' className="bg-black rounded-sm px-4 text-white p-2 ">Login</Link>
+           }
+           
            </div>
         </div>
     );

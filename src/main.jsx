@@ -13,6 +13,8 @@ import AuthLayout from './layout/AuthLayout.jsx';
 import LoginForm from './Components/Login/LoginForm.jsx';
 import FormRegister from './Components/Login/FormRegister.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import NewsDetails from './Pages/NewsDetails.jsx';
+import PrivetRaoute from './Privet/PrivetRaoute.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,11 +32,12 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/news",
-    element: <div >news</div>,
+    path: "news/:id",
+    element:<PrivetRaoute><NewsDetails></NewsDetails></PrivetRaoute>,
+    loader:({params})=>fetch(`https://openapi.programming-hero.com/api/news/${params.id}`)
   },
   {
-    path: "/auth",
+    path: "auth",
     element:<AuthLayout></AuthLayout>,
     children:[
       {
