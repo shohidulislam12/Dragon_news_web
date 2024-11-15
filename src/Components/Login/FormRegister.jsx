@@ -15,7 +15,7 @@ if(name.length<5){
 const photo=e.target.photo.value
 const email=e.target.email.value
 const password=e.target.password.value
-console.log(name,email,photo,password)
+
 creatnewUser(email, password)
 .then((result)=>{
     setUSer(result)
@@ -23,13 +23,13 @@ creatnewUser(email, password)
     .then(()=>{
          navigate('/')
     })
-    .ctch((error)=>{
-      consol.oog(error)
+    .catch((error)=>{
+     
     })
   
 })
 .catch((error)=>{
-    console.log(error.message)
+
 })
     }
     return (

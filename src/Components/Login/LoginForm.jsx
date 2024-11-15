@@ -7,16 +7,16 @@ const {signin,setUSer,user}=useContext(AuthContext)
 const [error,setError]=useState({})
 const navigate=useNavigate()
 const location=useLocation()
-console.log(location)
+
 
   const handleLogin=(e)=>{
     e.preventDefault()
     const email=e.target.email.value
     const password=e.target.password.value
-    console.log(email,password)
+
     signin(email, password)
     .then((result)=>{
-        console.log("result is",result)
+
         setUSer(result)
         navigate(location?.state?location.state:'/')
     })

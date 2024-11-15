@@ -19,7 +19,7 @@ const AuthProvider = ({children}) => {
       return signOut(auth)
     }
     const updateUserProfile=(updatedata)=>{
-      return updateProfile(auth.currentUser,updatedData)
+      return updateProfile(auth.currentUser,updatedata)
          }
 
 

@@ -8,24 +8,26 @@ const Navbar = () => {
     logOut()
     setUSer(null)
   }
-  console.log("user from navbar",user)
+
+
     return (
         <div className=" flex justify-between">
            <div>
   {
-    user&&  <p>{user.user?.email}</p>
+    user&&  <p>{user?.email}</p>
   } 
            </div>
            <div className="flex gap-5">
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/about">About </NavLink>
                     <NavLink to="career">Career</NavLink>
+                    <NavLink to="dev">DevInf</NavLink>
            </div>
            <div className="flex gap-2">
          {
           user&&user.email?<div>
-            <img className="w-10 rounded-full" src={user?.photoURL} alt="" />
-            <p>{user?.displayName}</p>
+            <img className="w-10 rounded-full" src={user.photoURL} alt="" />
+            <p className="text-sm">{user?.displayName}</p>
           </div> :  <div>
           <img src={usericon} alt="" />
           </div>
